@@ -25,7 +25,15 @@ A bunch of programing exercises I gather from around the internet.
 
 - Each challenge must contain a `tests` file
 - To execute the tests using your challenge solution, the following line must be added at the end of your solution file
+``` javascript
+// For JavaScript 
+const runTests = require('../../../RunTests/JavaScript/index')
+runTests( ${FUNCTION_NAME} )
 ```
-JS: runTests( ${FUNCTION_NAME} )
+
+``` python
+# For python
+import RunTests.Python.index as run_tests
+run_tests( ${FUNCTION_NAME} )
 ```
 

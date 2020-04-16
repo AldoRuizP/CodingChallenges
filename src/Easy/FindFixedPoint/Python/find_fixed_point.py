@@ -1,3 +1,7 @@
+import sys
+sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python' )
+from test import run_tests
+
 
 """
 Find a fixed point in an array using a traditional for loop and the enumerate function
@@ -11,4 +15,4 @@ def find_fixed_point_for_loop(numbers):
   return -1
 
 
-print(find_fixed_point_for_loop([-5, 1, 3, 4]))
+run_tests( find_fixed_point_for_loop )
