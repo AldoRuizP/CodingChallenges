@@ -21,18 +21,12 @@ const failedTest = function(input, expectedOutput, output){
 const results = function(totalTests, fails){
   const success = totalTests - fails
   const result = fails === 0 ? 'Good Job!' : 'Keep Trying'
-  console.log(`
-    =====================================
-
-    Finished running all tests.
-
-    ${fails} failed test(s).
-    ${success} successful test(s).
-    
-    =====================================
-
-    [${success}/${totalTests}] ${result}
-  `)
+  console.log('=====================================')
+  console.log('\nFinished running all tests.')
+  console.log(`${fails} failed test(s).`)
+  console.log(`${success} successful test(s).`)
+  console.log('=====================================')
+  console.log(`[${success}/${totalTests}] ${result}`)
 }
 
 module.exports = {

@@ -1,7 +1,6 @@
 import sys
 sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python' )
-from test import run_tests
-
+from run_test import run_tests
 
 """
 Find a fixed point in an array using a traditional for loop and the enumerate function

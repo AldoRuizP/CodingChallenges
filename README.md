@@ -33,7 +33,9 @@ runTests( ${FUNCTION_NAME} )
 
 ``` python
 # For python
-import RunTests.Python.index as run_tests
+import sys
+sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python' )
+from run_test import run_tests
 run_tests( ${FUNCTION_NAME} )
 ```
 
