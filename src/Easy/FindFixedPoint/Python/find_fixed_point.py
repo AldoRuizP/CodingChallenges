@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python' )
+sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python')
 from run_test import run_tests
 
 """
@@ -12,6 +12,5 @@ def find_fixed_point_for_loop(numbers):
     if index == value:
       return value
   return -1
-
 
 run_tests( find_fixed_point_for_loop )

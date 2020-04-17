@@ -36,6 +36,6 @@ runTests( ${FUNCTION_NAME} )
 import sys
 sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python' )
 from run_test import run_tests
-run_tests( ${FUNCTION_NAME} )
+run_tests( {FUNCTION_NAME} )
 ```
 
