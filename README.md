@@ -39,3 +39,10 @@ from run_test import run_tests
 run_tests( {FUNCTION_NAME} )
 ```
 
+## Adding a Challenge
+
+- To add a new challenge run the following comman
+``` bash
+chmod 755 ./scripts/add_challenge.sh # To grant execute permission to the script
+./scripts/add_challenge.sh
+```
