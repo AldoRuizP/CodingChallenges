@@ -1,0 +1,5 @@
+Add Challenge scrip:
+  - Validate already existing folders
+  - Add test generator
+  - Logging current status for user
+  - Allow to hit backspace when adding description or starting point
