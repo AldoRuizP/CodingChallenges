@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 
 function init() {
@@ -11,7 +11,6 @@ function init() {
   "
 
   options=( "Easy" "Medium" "Hard" )
-  source ./scripts/select_option.sh
   select_option "${options[@]}"
   choice=$?
   local difficulty="${options[choice]}"
@@ -19,5 +18,7 @@ function init() {
 }
 
 
+
+source ./scripts/select_option.sh
 init
 
