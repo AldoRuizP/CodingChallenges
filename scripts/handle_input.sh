@@ -1,11 +1,22 @@
 function read_multiline_input() {
-  local tmp
+  local tmp=""
   while :
   do
     read line
-    [[ $line == "DONE" ]] && tmp="${tmp:0:$((${#tmp}-1))}" && break
+    if [[ $line == "DONE" ]]
+    then 
+      if [[ -z "$tmp" ]]
+      then
+        tmp="None."
+      else
+        tmp="${tmp:0:$((${#tmp}-1))}"
+      fi
+      break;
+    fi
+
     tmp="$tmp"$line$'\n'
   done
+  
   echo "$tmp"
 }
 

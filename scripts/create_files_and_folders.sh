@@ -24,10 +24,15 @@ function create_files_and_folders() {
   print_log "Created folder structure"
   touch README.md
   print_log "Created Readme file"
-  touch tests
+  touch tests 
   print_log "Created tests file"
   echo -e "## Description\n\n$challenge_description\n\n## Starting Point\n\n$challenge_starting_point\n\n## Constrains\n\n$challenge_constrains" >>README.md
   print_log "Created folder structure and README file"
   create_js_folder
   create_python_folder
+}
+
+function init_tests() {
+  echo -e "1\n$1\n$2" >> tests
+  print_log "Init test file"
 }
