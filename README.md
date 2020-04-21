@@ -41,8 +41,12 @@ run_tests( {FUNCTION_NAME} )
 
 ## Adding a Challenge
 
-- To add a new challenge run the following comman
+- To add a new challenge run the following command
 ``` bash
 chmod 755 ./scripts/add_challenge.sh # To grant execute permission to the script
 ./scripts/add_challenge.sh
 ```
+Follow the prompted instructions.
+
+Make sure to write "DONE" after you finish multiline input in order to continue to the next step.
+If you would like to leave the input empty, just write "DONE".

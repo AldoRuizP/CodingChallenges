@@ -1,11 +1,2 @@
-Add Challenge scrip:
-  X Validate already existing folders
-  - Add test generator
-  X Logging current status for user
-  X Allow to hit backspace when adding description or starting point
-
-README:
-  - Add instructions for the new challenge script
-
 SCRIPT:
   - Unifiy testing suite with a single bash script that identifies the incoming language. This should simplify base files so they no longer need to import the test suite each time
