@@ -48,8 +48,20 @@ Execute the test read from the test file, using the given function
 :return: bool: States if the result of the test matches the expected
 """
 def execute_test( expected_input, expected_output, function_to_test ):
-  parsed_input = json.loads( expected_input )
-  parsed_output = json.loads( expected_output )
+
+  parsed_input = None
+  parsed_output = None
+
+  try:
+    parsed_input = json.loads( expected_input )
+  except:
+    parsed_input = expected_input
+
+  try:
+    parsed_output = json.loads( expected_output )
+  except:
+    parsed_output = expected_output
+
   actual_output = function_to_test( parsed_input )
   result = parsed_output == actual_output
 
