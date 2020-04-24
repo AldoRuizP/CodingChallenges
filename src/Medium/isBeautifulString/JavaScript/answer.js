@@ -22,13 +22,9 @@ function checkAlphabeticalOrder(keys) {
 }
 
 function checkDescendentOrder(values) {
-  let previous = values[0] + 1 
-  let isSorted = true
-  values.forEach( value => {
-    isSorted = ( isSorted && previous >= value )
-    previous = value
-  })
-  return isSorted
+  const sortedValues = values.slice().sort( (a, b) =>  b - a ) 
+  const areDifferent = sortedValues.some( ( sorted, index ) => sorted !== values[ index ] )
+  return !areDifferent
 }
 
 runTests( myFunction )
