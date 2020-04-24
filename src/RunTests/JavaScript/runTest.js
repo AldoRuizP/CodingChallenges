@@ -40,8 +40,22 @@ module.exports = function readAndExecuteTests(testsPath, testFunction) {
  * @param {func} testFunction - The function which will be used to test the cases
  */
 function _performTest(rawInput, rawOutput, testFunction) {
-  const parsedInput = JSON.parse(rawInput)
-  const parsedOutput = JSON.parse(rawOutput)
+
+  let parsedInput
+  let parsedOutput
+
+  try{
+    parsedInput = JSON.parse(rawInput)
+  }catch(e){
+    parsedInput = rawInput
+  }
+
+  try{
+    parsedOutput = JSON.parse(rawOutput)
+  }catch(e){
+    parsedOutput = rawOutput
+  }
+
   const actualOutput = testFunction(parsedInput)
   const matchingOutputs = parsedOutput.toString() === actualOutput.toString()
   if (!matchingOutputs) { 

@@ -14,6 +14,7 @@ function myFunction(inputString) {
   return areKeysValid && areValuesValid
 }
 
+
 function checkAlphabeticalOrder(keys) {
   const lastChar = keys[ keys.length - 1 ]
   const expectedLastChar = String.fromCharCode( keys.length + FIRST_ASCII_VALUE )
@@ -30,13 +31,4 @@ function checkDescendentOrder(values) {
   return isSorted
 }
 
-console.log(myFunction('bbbaacdafe')) // true
-console.log(myFunction('aabbb')) // false 
-console.log(myFunction('bbc')) // false 
-console.log(myFunction('az')) // false 
-console.log(myFunction('aaaaaaaaaaaaaaaaaaaa')) // true
-console.log(myFunction('abcdef')) // true
-
-
-
-
+runTests( myFunction )
