@@ -18,6 +18,13 @@ def my_function( number ):
   
   return round ( x, 3 )
 
+"""
+A function that calculates the relative margin of error between two numbers 
+:param number: x - The first number to get the margin of error
+:param number: y - The second number to get the margin of error
+:return number: - The margin or error between the two numbers
+ */
+"""
 def get_relative_error( x, y ):
   return ( x - y ) / x
 
