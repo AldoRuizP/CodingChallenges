@@ -2,37 +2,23 @@ import sys
 sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python')
 from run_test import run_tests
 
-def my_function( x ):
+"""
+Find the square root of a given integer without using any built in square/power functions
+:param number: An integer to determine its square root
+:return The square root of the given number, rounded to three decimals
+"""
+def my_function( number ):
+  x = number
+  y = 1
+  precision = 0.0001
 
-  # Initial approximation
-  square_root = x / 2
+  while ( get_relative_error( x, y ) > precision):
+    x = (x + y) / 2
+    y = number / x
+  
+  return round ( x, 3 )
 
-
-  while ( square_root * square_root != x ):
-
-
-    print (square_root)
-
-    current_square_difference = ( square_root * square_root ) - x
-
-    # Apply formula  x1 = (x0 + S / x0) / 2
-    new_approximation = ( square_root + x / square_root ) / square_root
-
-    new_square_difference = ( new_approximation * new_approximation ) - x
-
-    square_root = new_approximation
-
-
-
-
-
-
-
-
-
-
-
-
-
+def get_relative_error( x, y ):
+  return ( x - y ) / x
 
 run_tests( my_function )
