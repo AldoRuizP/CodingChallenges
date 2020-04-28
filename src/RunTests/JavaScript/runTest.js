@@ -56,7 +56,7 @@ function _performTest(rawInput, rawOutput, testFunction) {
     parsedOutput = rawOutput
   }
 
-  const actualOutput = testFunction(parsedInput)
+  const actualOutput = testFunction( parsedInput )
   const matchingOutputs = parsedOutput.toString() === actualOutput.toString()
   if (!matchingOutputs) { 
     generateMessage.failedTest(parsedInput, parsedOutput, actualOutput)
