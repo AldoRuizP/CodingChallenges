@@ -2,8 +2,16 @@ import sys
 sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python')
 from run_test import run_tests
 
+def sub_array_sum( numbers ):
+  """ Finds a sub array that sums up to the first item in the original array
 
-def my_function( numbers ):
+  Arguments:
+      numbers { number[] } -- An array of integers in which the first item is the target sum and the rest contains a sub array that sums up
+      to the target
+
+  Returns:
+      number[] -- The sub array which sums up to the target
+  """
   target = numbers.pop(0)
   low_index = 0
   high_index = 1
@@ -18,4 +26,4 @@ def my_function( numbers ):
     
   return numbers[low_index:high_index]
 
-run_tests( my_function )
+run_tests( sub_array_sum )
