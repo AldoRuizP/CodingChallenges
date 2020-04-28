@@ -6,7 +6,7 @@ const FIRST_ASCII_VALUE = 96
  * @param { string } inputString - The string to analyze
  * @returns { boolean } - True or false if the given string is beautiful
  */
-function myFunction(inputString) {
+function isBeautifulString(inputString) {
 
   charMap = new Map()
   inputString.split('').sort().forEach(char => {
@@ -42,4 +42,4 @@ function checkDescendentOrder(values) {
   return !areDifferent
 }
 
-runTests( myFunction )
+runTests( isBeautifulString )

@@ -5,7 +5,7 @@ const runTests = require('../../../RunTests/JavaScript/index')
  * @param {*} number - The number to find its square root to three decimals precision
  * @returns { number } parsedAnswer - The square root of the number, rounded to three decimal points
  */
-function myFunction( number ){
+function squareRoot( number ){
   squareRoot = findSquareRoot( number, 0.001 )
   const answer = squareRoot.toFixed(3)
   const parsedAnswer = answer % 1 === 0 ? Math.round(answer) : answer
@@ -40,4 +40,4 @@ function getRelativeError( x, y ){
   return ( x - y) / x
 }
 
-runTests( myFunction )
+runTests( squareRoot )

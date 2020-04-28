@@ -7,7 +7,7 @@ Find the square root of a given integer without using any built in square/power 
 :param number: An integer to determine its square root
 :return The square root of the given number, rounded to three decimals
 """
-def my_function( number ):
+def square_root( number ):
   x = number
   y = 1
   precision = 0.0001
@@ -28,4 +28,4 @@ A function that calculates the relative margin of error between two numbers
 def get_relative_error( x, y ):
   return ( x - y ) / x
 
-run_tests( my_function )
+run_tests( square_root )

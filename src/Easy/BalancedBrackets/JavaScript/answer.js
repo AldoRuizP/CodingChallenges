@@ -11,7 +11,7 @@ const bracketsMap = {
  * @param { string } inputString - The string to validate
  * @returns { boolean } - True or false if the string has balanced brackets
  */
-function myFunction( inputString ){
+function balancedBrackets( inputString ){
   const bracketStack = []
 
   inputString.split('').forEach( char => {
@@ -26,4 +26,4 @@ function myFunction( inputString ){
   return bracketStack.length === 0
 }
 
-runTests( myFunction )
+runTests( balancedBrackets )

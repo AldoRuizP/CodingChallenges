@@ -9,11 +9,11 @@ A function that checks if the brackets of a given string are balanced, using str
 :param string: input_string - The string to validate
 :return bool: - True or false if the string has balanced brackets
 """
-def my_function( input_string ):
+def balanced_brackets( input_string ):
   sanitized_input = ''.join( input_string.split() )
   while any( match in sanitized_input for match in brackets ):
     for bracket in brackets:
-      sanitized_input = sanitized_input.replace( bracket, '')
+      sanitized_input = sanitized_input.replace( bracket, '' )
   return not sanitized_input
 
-run_tests( my_function )
+run_tests( balanced_brackets )
