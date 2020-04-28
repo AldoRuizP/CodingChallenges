@@ -1,7 +1,8 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
-function subArraySum( numbers, target ){
+function subArraySum( numbers ){
 
+  const target = numbers.shift()
   let subArray = []
   let currentSum = 0
   let index = 0
@@ -21,7 +22,6 @@ function subArraySum( numbers, target ){
   return subArray
 }
 
+//console.log( subArraySum( [ 14, 1, 3, 2, 5, 7, 2] ) ) // [ 2, 5, 7 ]
 
-
-console.log( subArraySum( [1, 3, 2, 5, 7, 2], 14) ) // [2, 5, 7]
-//runTests( subArraySum )
+runTests( subArraySum )
