@@ -21,19 +21,20 @@ function findPossibleSums( numbers ){
   const combinationsMap = new Map()
   numbers.forEach( (number, index) => {
     const subArray = numbers.slice(0, index)
-
-    console.log(' for this number =====> ', number)
     const combinations = []
-    findCombinations( [] , 0, number, number, combinations )
-
-    console.log(' ------------ finished this part ------------' )
-    combinationsMap.set( number, combinations )
+    findCombinationsUtil( [] , 0, number, number, combinations )
+    const validCombinations = [...combinations].filter( combination => {
+      const isInvalid = combination.some( combinationNumber => !subArray.includes(combinationNumber) )
+      const isCombination = combination.length > 1
+      return isCombination && !isInvalid
+    })
+    combinationsMap.set( number, validCombinations )
   })
   console.log(combinationsMap)
 }
 
 
-function findCombinations( arr, index, num, reducedNum, answers ){
+function findCombinationsUtil( arr, index, num, reducedNum, answers ){
 
   if (reducedNum < 0 ) return answers
   
@@ -46,7 +47,7 @@ function findCombinations( arr, index, num, reducedNum, answers ){
 
   for( let k = prev; k < num + 1; k++ ){
     arr[index] = k
-    findCombinations( arr, index + 1, num, reducedNum - k, answers)
+    findCombinationsUtil( arr, index + 1, num, reducedNum - k, answers  )
   }
 }
 
