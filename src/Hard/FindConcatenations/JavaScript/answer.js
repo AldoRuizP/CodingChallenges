@@ -12,7 +12,47 @@ function findCompoundWords( words ){
 
   const possibleCombinations = findPossibleSums( [...wordsMappedByLength.keys()] )
 
+  //console.log( possibleCombinations )
+
+  words.forEach( word => {
+
+    let possibleCombinationsByLength = [] 
+
+    possibleCombinations.get(word.length).forEach( combination => { 
+      possibleCombinationsByLength = [...possibleCombinationsByLength, ...combination]
+    })
+
+    const possibleCombinationsByLengthSet = new Set(possibleCombinationsByLength)
+    let possibleCombinationWords = []
+
+    Array.from(possibleCombinationsByLengthSet).forEach( length => {
+      const words = wordsMappedByLength.get(length)
+      possibleCombinationWords = [ ...possibleCombinationWords, ...words]
+    })
+
+    findWordCombination( word, possibleCombinationWords, possibleCombinations.get(word.length) )
+
+
+
+
+
+  })
+
 }
+
+function findWordCombination( word, words, possibleCombinations ){
+
+  if ( !words.length ) return
+
+  console.log( word, words, possibleCombinations )
+
+
+
+
+
+}
+
+
 
 function findPossibleSums( numbers ){
   const combinationsMap = new Map()
@@ -27,7 +67,7 @@ function findPossibleSums( numbers ){
     })
     combinationsMap.set( number, validCombinations )
   })
-  console.log(combinationsMap)
+  return combinationsMap
 }
 
 
