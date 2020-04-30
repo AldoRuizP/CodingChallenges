@@ -4,7 +4,20 @@ function findCompoundWords( words ){
 
   const wordsMappedByLength =  mapWordsByLength( words ) 
   const possibleCombinationsByLength = findPossibleSums( [...wordsMappedByLength.keys()] )
+  const possibleCombinationsMappedByWord = getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength )
 
+  console.log( possibleCombinationsMappedByWord) 
+
+
+
+
+
+}
+
+
+function getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength ){
+
+  const combinationsMappedByWord = new Map()
   words.forEach( word => {
     const wordLength = word.length
     const possibleCombinationsByLengthForThisWord = possibleCombinationsByLength.get( wordLength )
@@ -14,39 +27,25 @@ function findCompoundWords( words ){
     let possibleCombinationWords = []
     Array.from(possibleCombinationsByLengthSet).forEach( length => possibleCombinationWords.push( ...wordsMappedByLength.get(length)))
     const filteredPossibleCombinationWords = possibleCombinationWords.filter( substring => word.includes(substring))
-
-
-
     const allowedLengths = filteredPossibleCombinationWords.map( word => word.length )
     const allowedLengthsSet = new Set()
     allowedLengths.forEach( length => allowedLengthsSet.add(length))
-
-
     const possibleCombinationsByLengthForThisWordFiltered = possibleCombinationsByLengthForThisWord.filter( combination => {
       const allowedLengthsArray = Array.from( allowedLengths )
       const hasInvalid = combination.some( number => !allowedLengthsArray.includes(number))
       return !hasInvalid
     })
 
-
-
-    findWordCombination( word, filteredPossibleCombinationWords, possibleCombinationsByLengthForThisWordFiltered )
+    if ( filteredPossibleCombinationWords.length ){
+      combinationsMappedByWord.set( word, {
+        words: filteredPossibleCombinationWords,
+        combinations: possibleCombinationsByLengthForThisWordFiltered
+      })
+    }
   })
-
+  return combinationsMappedByWord
 }
 
-
-function findWordCombination( word, words, possibleCombinations ){
-
-  if ( !words.length ) return
-
-  console.log( word, words, possibleCombinations )
-
-
-
-
-
-}
 
 
 function mapWordsByLength( words ) {
@@ -88,7 +87,7 @@ function findCombinationsUtil( arr, index, num, reducedNum, answers ){
   }
 }
 
-findCompoundWords( [, "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog"] )
+findCompoundWords( [ "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog"] )
 
 
 //runTests( myFunction )
