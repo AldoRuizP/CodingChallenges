@@ -1,52 +1,50 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
 function findCompoundWords( words ){
-
   const wordsMappedByLength =  mapWordsByLength( words ) 
   const possibleCombinationsByLength = findPossibleSums( [...wordsMappedByLength.keys()] )
   const possibleCombinationsMappedByWord = getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength )
-
-  console.log( possibleCombinationsMappedByWord) 
-
-
-
-
-
+  possibleCombinationsMappedByWord.forEach( ( values, word ) => processWordToFindCombinations( values, word))
 }
 
+function processWordToFindCombinations( values, word ){
+
+  const { words, combinations } = values
+
+  console.log('\n\n=====================================')
+  console.log(' Processing permutations for ', word )
+  console.log(' Available words: ', words )
+  console.log(' Possible permutations: ', combinations)
+  console.log('=====================================')
+
+}
 
 function getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength ){
 
   const combinationsMappedByWord = new Map()
   words.forEach( word => {
-    const wordLength = word.length
-    const possibleCombinationsByLengthForThisWord = possibleCombinationsByLength.get( wordLength )
-    let possibleWordCombinationsByLength = [] 
-    possibleCombinationsByLength.get( wordLength ).forEach( combination => possibleWordCombinationsByLength.push( ...combination  ))
-    const possibleCombinationsByLengthSet = new Set(possibleWordCombinationsByLength)
-    let possibleCombinationWords = []
-    Array.from(possibleCombinationsByLengthSet).forEach( length => possibleCombinationWords.push( ...wordsMappedByLength.get(length)))
-    const filteredPossibleCombinationWords = possibleCombinationWords.filter( substring => word.includes(substring))
-    const allowedLengths = filteredPossibleCombinationWords.map( word => word.length )
-    const allowedLengthsSet = new Set()
-    allowedLengths.forEach( length => allowedLengthsSet.add(length))
-    const possibleCombinationsByLengthForThisWordFiltered = possibleCombinationsByLengthForThisWord.filter( combination => {
-      const allowedLengthsArray = Array.from( allowedLengths )
-      const hasInvalid = combination.some( number => !allowedLengthsArray.includes(number))
-      return !hasInvalid
-    })
-
-    if ( filteredPossibleCombinationWords.length ){
-      combinationsMappedByWord.set( word, {
-        words: filteredPossibleCombinationWords,
-        combinations: possibleCombinationsByLengthForThisWordFiltered
-      })
-    }
+    const combinationsByLength = possibleCombinationsByLength.get( word.length )
+    const filteredPossibleCombinationWords = getWordsByGivenLengths( possibleCombinationsByLength, word, wordsMappedByLength  )
+    const filteredLengths = getLengthsByGivenWords( filteredPossibleCombinationWords, combinationsByLength )
+    const wordValues = { words: filteredPossibleCombinationWords, combinations: filteredLengths }
+    if ( filteredPossibleCombinationWords.length ) combinationsMappedByWord.set( word, wordValues )
   })
   return combinationsMappedByWord
 }
 
+function getWordsByGivenLengths( possibleCombinationsByLength, word, wordsMappedByLength ) {
+  const combinationsByWord = new Set()
+  let possibleCombinationWords = []
+  possibleCombinationsByLength.get( word.length ).forEach( combination => combination.forEach( w => combinationsByWord.add(w)))
+  Array.from(combinationsByWord).forEach( length => possibleCombinationWords.push( ...wordsMappedByLength.get(length)))
+  const filteredPossibleCombinationWords = possibleCombinationWords.filter( substring => word.includes(substring))
+  return filteredPossibleCombinationWords
+}
 
+function getLengthsByGivenWords( filteredPossibleCombinationWords, combinationsByLength  ){
+  const allowedLengths = filteredPossibleCombinationWords.map( word => word.length )
+  return combinationsByLength.filter( combination => !combination.some( number => !allowedLengths.includes(number)))
+}
 
 function mapWordsByLength( words ) {
   const wordsMappedByLength = new Map()
@@ -57,7 +55,6 @@ function mapWordsByLength( words ) {
   })
   return wordsMappedByLength
 }
-
 
 function findPossibleSums( numbers ){
   const combinationsMap = new Map()
@@ -75,7 +72,6 @@ function findPossibleSums( numbers ){
   return combinationsMap
 }
 
-
 function findCombinationsUtil( arr, index, num, reducedNum, answers ){
   if (reducedNum < 0 ) return answers
   if (reducedNum === 0 ) return answers.push( arr.slice( 0, index ) )
@@ -87,7 +83,7 @@ function findCombinationsUtil( arr, index, num, reducedNum, answers ){
   }
 }
 
-findCompoundWords( [ "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog"] )
+findCompoundWords( [ "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog", "s" ] )
 
 
 //runTests( myFunction )
