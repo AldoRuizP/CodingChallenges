@@ -1,3 +1,5 @@
 1
 ["tech", "lead", "techlead", "cat", "cats", "dog", "catsdog"]
 ['techlead', 'catsdog']
+[ "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog", "s" ]
+['cats', 'catsdog', 'techlead' ]

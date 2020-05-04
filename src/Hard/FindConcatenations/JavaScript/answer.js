@@ -4,19 +4,32 @@ function findCompoundWords( words ){
   const wordsMappedByLength =  mapWordsByLength( words ) 
   const possibleCombinationsByLength = findPossibleSums( [...wordsMappedByLength.keys()] )
   const possibleCombinationsMappedByWord = getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength )
-  possibleCombinationsMappedByWord.forEach( ( values, word ) => processWordToFindCombinations( values, word))
+  const compoundWords = []
+  
+  possibleCombinationsMappedByWord.forEach( ( values, word ) => { 
+    const isCompound = processWordToFindCombinations( values, word)
+    if( isCompound ) compoundWords.push(word)
+  })
+
+
+  return compoundWords
 }
 
 function processWordToFindCombinations( values, word ){
 
-  const { words, combinations } = values
+  const { words } = values
+  let replacedWord = word
+  const sortedWordsByLength = words.sort( (a,b) => b.length - a.length)
+  sortedWordsByLength.forEach( possibleWord => {
+    let tempPrevious = replacedWord
+    while(true){
+      tempPrevious = replacedWord
+      replacedWord = replacedWord.replace( possibleWord, '' )
+      if ( tempPrevious === replacedWord ) break
+    }
+  })
 
-  console.log('\n\n=====================================')
-  console.log(' Processing permutations for ', word )
-  console.log(' Available words: ', words )
-  console.log(' Possible permutations: ', combinations)
-  console.log('=====================================')
-
+  return !replacedWord
 }
 
 function getCombinationsMappedByWord( words, wordsMappedByLength, possibleCombinationsByLength ){
@@ -83,7 +96,4 @@ function findCombinationsUtil( arr, index, num, reducedNum, answers ){
   }
 }
 
-findCompoundWords( [ "a", "tech", "lead", "techlead", "cat", "cats", "dog", "catsdog", "s" ] )
-
-
-//runTests( myFunction )
+runTests( findCompoundWords )
