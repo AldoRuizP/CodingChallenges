@@ -27,6 +27,7 @@ function questionMarks(str) {
 
     if ( sum === 10 ){
       isValid = questionMarks === 3
+      questionMarks = 0
     } else {
       firstNumber = parsed
       questionMarks = 0
