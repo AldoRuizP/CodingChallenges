@@ -14,14 +14,20 @@ def letter_changes( str ):
   Returns:
       [ string ] -- The converted string
   """
-  shifted_str = ''
+  return ''.join( map( shift_and_parse, str) )
 
-  for char in str:
-    if char in ascii_lowercase:
-      char = ascii_lowercase[0] if char == ascii_lowercase[-1] else chr(ord(char)+1)
-      if char in vowels: char = char.upper()
-    shifted_str += char
-  
-  return shifted_str
+def shift_and_parse( char ):
+  """ A helper function to shift and capitalize a letter 
+
+  Arguments:
+      char { chr } -- The letter to be shifted and capitalized
+
+  Returns:
+      [ chr ] -- The shifted and capitalized letter
+  """
+  if char in ascii_lowercase:
+    char = ascii_lowercase[0] if char == ascii_lowercase[-1] else chr(ord(char)+1)
+  return char.upper() if char in vowels else char
+
 
 run_tests( letter_changes )
