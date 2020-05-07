@@ -7,18 +7,25 @@ const FIRST_ASCII_VALUE = 96
  * @returns { boolean } - True or false if the given string is beautiful
  */
 function isBeautifulString(inputString) {
-
-  charMap = new Map()
-  inputString.split('').sort().forEach(char => {
-    const newCharCount = charMap.has(char) ? charMap.get(char) + 1 : 1
-    charMap.set( char, newCharCount )
-  })
-
+  const charMap = mapAndCountCharacters( inputString )
   const areKeysValid = checkAlphabeticalOrder([...charMap.keys()])
   const areValuesValid = checkDescendentOrder([...charMap.values()])
   return areKeysValid && areValuesValid
 }
 
+/**
+ * A function that iterates each char in a string and counts them, then maps it
+ * @param { string } inputString - A string to map its characters
+ * @returns { Map[char, number] } - A map with each character as a key and its number of occurrences as the value 
+ */
+function mapAndCountCharacters( inputString ){
+  const charMap = new Map()
+  inputString.split('').sort().forEach(char => {
+    const newCharCount = charMap.has(char) ? charMap.get(char) + 1 : 1
+    charMap.set( char, newCharCount )
+  })
+  return charMap
+}
 
 /**
  * A function that determines if the values an array of characters are in a strict sequence and don't skip any char in between
