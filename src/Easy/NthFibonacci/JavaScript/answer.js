@@ -5,7 +5,7 @@ const runTests = require('../../../RunTests/JavaScript/index')
  * @param { number } n - The nth value to return
  * @returns { number } - The nth value of the fibonacci sequence
  */
-function nthFibonacci( n ){
+function nthFibonacci( n ) {
   return ( n < 2 ) ? n : nthFibonacci( n - 1 ) + nthFibonacci( n - 2 ) 
 }
 
