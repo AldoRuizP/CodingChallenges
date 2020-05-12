@@ -1,7 +1,12 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
-function myFunction(){
-  /* Fill this... */
+/**
+ * A function that receives a string and reverses it
+ * @param { string } str - The string to reverse
+ * @returns { string } - The reversed string
+ */
+function reverseString( str ){
+  return str.split('').reverse().join('')
 }
 
-runTests( myFunction )
+runTests( reverseString )
