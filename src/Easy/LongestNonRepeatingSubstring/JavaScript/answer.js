@@ -1,24 +1,26 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
 /**
- * A function that given a string, returns the longest substring of non repeating characters.
+ * A function that returns the longest substring of non repeating characters in a string
  * @param { string } str - The input string to analyze
- * @returns { string } - The longest substring of non repeating characters
+ * @returns { number } - The length of the longest substring of non repeating characters
  */
 function longestSubString( str ){
-  let currentLongestSet = new Set()
-  const length =  str.split('').reduce( ( longest, char ) => {
-    
-    if ( currentLongestSet.has(char) ){
-      if ( currentLongestSet.size > longest ) longest = currentLongestSet.size
-      currentLongestSet.clear()
+
+  let currentSubstring = []
+  let maxLength = 0
+
+  for ( let i = 0; i < str.length; i++ ){
+    const currentChar = str[i]
+    if ( currentSubstring.includes(currentChar) ){
+      currentSubstring = currentSubstring.slice( currentSubstring.indexOf(currentChar) + 1  )
     }
+    currentSubstring.push(currentChar)
+    maxLength = Math.max( maxLength, currentSubstring.length )
+  }
 
-    currentLongestSet.add(char)
-    return longest
-  }, 0 )
-
-  return length || str.length
+  return maxLength 
 }
+
 
 runTests( longestSubString )
