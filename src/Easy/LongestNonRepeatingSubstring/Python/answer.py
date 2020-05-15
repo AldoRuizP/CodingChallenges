@@ -6,10 +6,10 @@ def my_function( string ):
   """ A function that returns the longest substring of nonrepeating characters in a string
 
   Arguments:
-      string { str } -- Theinput string to analyze
+      string { str } -- The input string to analyze
 
   Returns:
-      [ str ] -- The length of the longest substring of nonrepeating characters
+      [ number ] -- The length of the longest substring of nonrepeating characters
   """
   
   str_list = []
