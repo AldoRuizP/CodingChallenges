@@ -7,7 +7,6 @@ const runTests = require('../../../RunTests/JavaScript/index')
  * @returns { number[] } - An array of numbers that represent the given large number after adding one
  */
 function arrayPlusOne( arr ){
-
   let carry = 1
 
   const result =  arr.slice().reverse().map( number => {
