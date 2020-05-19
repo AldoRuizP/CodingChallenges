@@ -1,5 +1,11 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
+/**
+ * A function that receives an array of integers. Each element in the array represent a digit in a larger number
+ * The function returns an array representing the number after adding one
+ * @param { number[] } arr - An array of numbers that represent a larger integer
+ * @returns { number[] } - An array of numbers that represent the given large number after adding one
+ */
 function arrayPlusOne( arr ){
 
   let carry = 1
