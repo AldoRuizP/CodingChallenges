@@ -12,7 +12,7 @@ function sortColors(colors) {
   let rightIndex = colors.length - 1
 
   while (midIndex <= rightIndex) {
-    
+
     const currentColor = colors[midIndex]
 
     switch (currentColor) {
@@ -32,7 +32,6 @@ function sortColors(colors) {
 
   return colors
 }
-
 
 // Helping function to swap items in an array
 Array.prototype.swap = function (a, b) { let temp = this[a]; this[a] = this[b]; this[b] = temp }
