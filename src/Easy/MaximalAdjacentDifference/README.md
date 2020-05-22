@@ -6,6 +6,8 @@ Given an array of integers, find the maximal absolute difference between any two
 
 ``` javascript
 function arrayMaximalAdjacentDifference(inputArray) {
+  // Fill this
+  return
 }
 ```
 
