@@ -14,4 +14,4 @@ print(square_numbers([-5, -3, -1, 0, 1, 4, 5]))
 
 ## Constrains
 
-Solve this problem in O(n) time.
+None.
