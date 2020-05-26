@@ -20,7 +20,7 @@ function meetingRooms( meetings ){
     if ( collisions > 1 ) rooms++
   }
 
-  return rooms
+  return Math.min( meetings.length, rooms )
 }
 
 /**
