@@ -25,7 +25,7 @@ def meeting_rooms( meetings ):
     if collisions > 1:
       rooms += 1
 
-  return rooms
+  return min( rooms, len(meetings) )
 
 
 def are_meetings_colliding( meeting_a, meeting_b ):
