@@ -1,6 +1,6 @@
 ## Description
 
-Given 3 sorted lists, find the intersection of those 3 lists.
+Given 3 sorted lists, find the first intersection of those 3 lists and return it. If there's no intersection, return -1
 
 ## Starting Point
 
