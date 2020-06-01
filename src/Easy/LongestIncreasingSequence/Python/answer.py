@@ -6,7 +6,7 @@ def longest_increasing_subsequence( arr ):
   """ A function that returns the longest subsequence, not necessarily contiguous, in an array
 
   Arguments:
-      arr { number[] } -- An array of integers
+      arr { number[] } -- An array of integers, in random order
 
   Returns:
       number -- The longest increasing subsequence of the given array
