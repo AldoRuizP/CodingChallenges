@@ -15,7 +15,7 @@ function longestIncreasingSubsequence( arr ){
         lengths[i] = Math.max( lengths[i], lengths[j] + 1 )
       } 
     }
-  }
+  }g
 
   return Math.max( ...lengths ) 
 }
