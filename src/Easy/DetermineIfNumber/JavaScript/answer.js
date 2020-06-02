@@ -1,7 +1,8 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
-function myFunction(){
-  /* Fill this... */
+function determineIfNumber( str ){
+  const regex = new RegExp(/^-?\d*\.?\d+[e?\d+]?\d*$/, 'g')
+  return regex.test( str )
 }
 
-runTests( myFunction )
+runTests( determineIfNumber )
