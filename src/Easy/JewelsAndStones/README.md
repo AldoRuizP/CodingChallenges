@@ -8,8 +8,7 @@ The letters in J are guaranteed distinct, and all characters in J and S are lett
 
 ``` javascript
 /**
-* @param {string} J
-* @param {string} S
+* @param {string[]} J, S
 * @return {number}
 */
 var numJewelsInStones = function(J, S) {
