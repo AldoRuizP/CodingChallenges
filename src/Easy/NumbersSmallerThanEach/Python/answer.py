@@ -9,7 +9,7 @@ def my_function( numbers ):
       numbers (number[] ):  An array of numbers
 
   Returns:
-      number[]: An array with the number of elements smaller than each item in the original arra
+      number[]: An array with the number of elements smaller than each item in the original array
   """
 
   counts = []
