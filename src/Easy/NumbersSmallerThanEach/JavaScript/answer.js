@@ -7,7 +7,7 @@ const runTests = require('../../../RunTests/JavaScript/index')
  */
 function myFunction( numbers ){
   const sortedNumbers = numbers.slice().sort( (a,b) => a - b )
-  return numbers.map( num => sortedNumbers.indexOf( num ))
+  return numbers.map( num => sortedNumbers.indexOf( num ) )
 }
 
 runTests( myFunction )
