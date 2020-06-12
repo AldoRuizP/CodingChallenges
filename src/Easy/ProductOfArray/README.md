@@ -18,4 +18,5 @@ print products([1, 2, 3, 4, 5])
 
 ## Constrains
 
-Do not use the division operator
+Do not use the division operator. 
+Find a solution with time complexity equal or less than O( n log n)
