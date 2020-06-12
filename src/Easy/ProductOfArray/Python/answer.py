@@ -3,6 +3,14 @@ sys.path.insert(1, sys.path[0] + '/../../../RunTests/Python')
 from run_test import run_tests
 
 def product_of_array( arr ):
+  """ A function that calculates the product of all the elements in the array except itself and returns it an a new array
+
+  Args:
+      arr ( number[] ): A list of integers
+
+  Returns:
+      number[]: A list of integers
+  """
   N = len(arr)
   res   = [1] * N
   left  = [1] * N
