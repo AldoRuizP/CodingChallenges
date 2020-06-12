@@ -1,5 +1,10 @@
 const runTests = require('../../../RunTests/JavaScript/index')
 
+/**
+ * A function that calculates the product of all the elements in the array except itself and returns it an a new array
+ * @param { number[] } arr - An array of integers
+ * @returns { number[] } products - An array of integers 
+ */
 function productOfArray( arr ){
 
   const leftSideProducts  = []
