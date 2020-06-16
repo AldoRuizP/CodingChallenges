@@ -16,7 +16,6 @@ function arrayPlusOne( arr ){
     return isOverflow ? 0 : tempSum
   })
 
-
   if ( carry > 0 ) result.push(carry)
   return result.reverse()
 }
