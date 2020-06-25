@@ -1,3 +1,8 @@
 {
-  "python.autoComplete.extraPaths": ["./src/RunTests/Python"],
+  "python.autoComplete.extraPaths": [
+    "./src/RunTests/Python"
+  ],
+  "cSpell.ignoreWords": [
+    "nums"
+  ],
 }
